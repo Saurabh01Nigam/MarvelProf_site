@@ -1,0 +1,24 @@
+from django.conf.urls import patterns, include, url
+
+from django.contrib import admin
+admin.autodiscover()
+
+urlpatterns = patterns('',
+    # Examples:
+    # url(r'^$', 'marvelsite.views.home', name='home'),
+    # url(r'^blog/', include('blog.urls')),
+
+    url(r'^admin/', include(admin.site.urls)),
+    url(r'^$', 'marvelsite.views.home', name='home'),
+    url(r'^about/$', 'marvelsite.views.about', name='about'),
+
+    # Auth-related URLs:
+    url(r'^accounts/login/$', 'django.contrib.auth.views.login', name='login'),
+    url(r'^accounts/logout/$', 'django.contrib.auth.views.logout', name='logout'),
+    url(r'^accounts/loggedin/$', 'marvelsite.views.loggedin', name='loggedin'),
+
+    # Registration URLs
+    url(r'^accounts/register/$', 'marvelsitesite.views.register', name='register'),
+    url(r'^accounts/register/complete/$', 'marvelsite.views.registration_complete', name='registration_complete'),
+
+)
