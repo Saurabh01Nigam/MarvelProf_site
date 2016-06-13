@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load bootstrap3 %}
+{% bootstrap_css %}
+{% block title %}Congratulations, You have successfully registered!{% endblock %}
+
+{% block body_block %}
+       
+            <h3>Congratulations! you are now registered.</h3>
+            <a href="/account/login/"></a>
+            
+
+            
+        {% endif %}
+{% endblock %}

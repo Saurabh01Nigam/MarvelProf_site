@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %}Landing{% endblock %}
+
+{% block body_block %}
+      {% if user.is_authenticated %}
+      <h1>Hello {{ user.username }}!</h1>
+      {% else %}
+      <h1>Marvel Profs</h1>
+      {% endif %}
+{% endblock %}

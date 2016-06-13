@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load bootstrap3 %}
+{% bootstrap_css %}
+{% block title %}Register{% endblock %}
+
+{% block body_block %}
+        {% if registered %}
+            <h3>You have successfully registered. To login plaese click <a href="/account/login">here.</a></h3>
+            <br />
+            {% else %}
+            <h3>Register</h3><br />
+
+            <form id="user_form" method="post" class="form-vertical" action="/account/register/"
+                    enctype="multipart/form-data">
+                {% csrf_token %}
+                {% bootstrap_form user_form layout='vertical' %}
+                {% bootstrap_form profile_form layout='vertical' %}
+                <!-- Provide a button to click to submit the form. -->
+
+                <div class="center"><input class="btn btn-success" type="submit" name="submit" value="Register" /></div>
+                <div class="form-group">
+                    <h4 class="center">Already have an account? <a href="/account/login">Login</a></h4>
+                </div>
+                </form>
+        {% endif %}
+{% endblock %}

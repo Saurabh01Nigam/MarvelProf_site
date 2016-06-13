@@ -1,0 +1,30 @@
+{% load bootstrap3 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Marvel Profs - {% block title %}{% endblock %}</title>
+    </head>
+
+    <body>
+        <div>
+            {% block body_block %}{% endblock %}
+        </div>
+
+        <hr />
+        <div>
+            <ul>
+            {% if user.is_authenticated %}
+                <li><a href="/account/restricted/">Restricted Page</a></li>
+                <li><a href="/account/logout/">Logout</a></li>
+                <li><a href="/account/add_category/">Add a New Category</a></li>
+            {% else %}
+                <li><a href="/account/register/">Register Here</a></li>
+                <li><a href="/account/login/">Login</a></li>
+            {% endif %}
+            </ul>
+        </div>
+    </body>
+</html>
